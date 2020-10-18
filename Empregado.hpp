@@ -7,21 +7,27 @@
 class Empregado {
 	
   public:
+    Empregado();
+    
+    Empregado(std::string _nome, double salarioH);
+    
+    virtual ~Empregado();
+
+    double pagamentoMes(double horasTrabalhadas);
+
+    virtual void mostrarDadosMensais(double horas) = 0;
+	
+    void setNome(std::string _nome);
+    
+    std::string getNome();
+
+    void setSalarioHora(double salario);
+	
+    double getSalarioHora();
+
+  protected:
+    std::string nome;
     double salarioHora;  
-    double quotaMensalVendas;  
-
-
-    double pagamentoMes(double horasTrabalhadas) {
- 
-      double t = horasTrabalhadas;
-	  
-	  //Cálculo de hora extra (+50% se horasTrabalhadas > 8)
-      if (horasTrabalhadas > 8) {
-        double x = horasTrabalhadas - 8;
-        t += x / 2;
-      }
-	  return t * salarioHora;
-    }
 	
 };
 
